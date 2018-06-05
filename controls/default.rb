@@ -9,6 +9,7 @@ control 'demorole control' do                        # A unique ID for this cont
   describe file('C:\\demorolefile.txt') do                  # The actual test
     it { should exist }
     it { should be_file }
+    it { should be_writable.by_user('NT AUTHORITY\SYSTEM') }}
     its('content') { should match(%r{This is the demorole file version 1}) }
   end
 end
